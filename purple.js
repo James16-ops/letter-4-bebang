@@ -52,8 +52,8 @@ penguins.forEach((penguin,index)=>{
 });
 function moveStar(){
 
-    penguins[holder]
-    .classList.remove("holder");
+    const currentPenguin =
+    penguins[holder];
 
     let next;
 
@@ -66,10 +66,25 @@ function moveStar(){
 
     }while(next === holder);
 
-    holder = next;
+    const nextPenguin =
+    penguins[next];
+
+    throwStar(
+        currentPenguin,
+        nextPenguin
+    );
 
     penguins[holder]
-    .classList.add("holder");
+    .classList.remove("holder");
+
+    holder = next;
+
+    setTimeout(()=>{
+
+        penguins[holder]
+        .classList.add("holder");
+
+    },800);
 
     if(score >= 5){
 
@@ -166,5 +181,66 @@ function showBubble(
         bubble.remove();
 
     },1000);
+
+}
+function throwStar(
+    from,
+    to
+){
+
+    const star =
+    document.getElementById(
+        "flyingStar"
+    );
+
+    const fromRect =
+    from.getBoundingClientRect();
+
+    const toRect =
+    to.getBoundingClientRect();
+
+    star.style.display =
+    "block";
+
+    star.style.left =
+    fromRect.left + "px";
+
+    star.style.top =
+    fromRect.top + "px";
+
+    star.animate(
+
+        [
+            {
+                left:
+                fromRect.left + "px",
+
+                top:
+                fromRect.top + "px"
+            },
+
+            {
+                left:
+                toRect.left + "px",
+
+                top:
+                toRect.top + "px"
+            }
+
+        ],
+
+        {
+            duration:800,
+            fill:"forwards"
+        }
+
+    );
+
+    setTimeout(()=>{
+
+        star.style.display =
+        "none";
+
+    },800);
 
 }
