@@ -98,8 +98,30 @@ function winGame(){
     clearInterval(countdown);
 
     document
+    .querySelector(".game-title")
+    .innerHTML =
+
+    `
+    <h1>🎉 Good Job Pam!</h1>
+
+    <p>
+        The penguins surrender.
+        <br>
+        You recovered all the stars.
+    </p>
+    `;
+
+    penguins.forEach((penguin)=>{
+
+        penguin.style.animation =
+        "celebrate 1s infinite";
+
+    });
+
+    document
     .getElementById("continueBtn")
-    .style.display = "block";
+    .style.display =
+    "block";
 
 }
 const countdown = setInterval(() => {
@@ -242,5 +264,41 @@ function throwStar(
         "none";
 
     },800);
+
+}
+setInterval(()=>{
+
+    const randomPenguin =
+    penguins[
+        Math.floor(
+            Math.random()*5
+        )
+    ];
+
+    showBubble(
+        randomPenguin,
+        randomIdleMessage()
+    );
+
+},5000);
+function randomIdleMessage(){
+
+    const messages = [
+
+        "Protect the star!",
+        "Hide it!",
+        "She's coming!",
+        "Run!",
+        "Fish later!",
+        "Mission active!"
+
+    ];
+
+    return messages[
+        Math.floor(
+            Math.random() *
+            messages.length
+        )
+    ];
 
 }
