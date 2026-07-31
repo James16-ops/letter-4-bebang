@@ -262,3 +262,21 @@ button:active{
     ...
 
 }
+#flyingStar{
+
+    position:absolute;
+
+    font-size:40px;
+
+    display:none;
+
+    pointer-events:none;
+
+    z-index:999;
+
+    filter:
+    drop-shadow(
+        0 0 15px violet
+    );
+
+}
