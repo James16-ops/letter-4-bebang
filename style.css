@@ -230,3 +230,26 @@ button:active{
     }
 
 }
+.bubble{
+
+    position:absolute;
+
+    top:-40px;
+    left:50%;
+
+    transform:
+    translateX(-50%);
+
+    background:white;
+
+    color:black;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:14px;
+
+    white-space:nowrap;
+
+}
