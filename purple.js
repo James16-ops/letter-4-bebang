@@ -1,3 +1,7 @@
+let timeLeft = 20;
+
+const timerText =
+document.getElementById("timer");
 let score = 0;
 
 const scoreText =
@@ -77,3 +81,19 @@ function winGame(){
     .style.display = "block";
 
 }
+const countdown = setInterval(() => {
+
+    timeLeft--;
+
+    timerText.innerHTML =
+    `⏳ ${timeLeft}`;
+
+    if(timeLeft <= 0){
+
+        clearInterval(countdown);
+
+        loseGame();
+
+    }
+
+},1000);
