@@ -32,17 +32,21 @@ penguins.forEach((penguin,index)=>{
 
             moveStar();
 
-        }else{
+       }else{
 
-            penguin.style.animation =
-            "shake .3s";
+    showBubble(
+        penguin,
+        randomMessage()
+    );
 
-            setTimeout(()=>{
-                penguin.style.animation="";
-            },300);
+    penguin.style.animation =
+    "shake .3s";
 
-        }
+    setTimeout(()=>{
+        penguin.style.animation="";
+    },300);
 
+}
     });
 
 });
@@ -76,6 +80,8 @@ function moveStar(){
 }
 function winGame(){
 
+    clearInterval(countdown);
+
     document
     .getElementById("continueBtn")
     .style.display = "block";
@@ -97,3 +103,68 @@ const countdown = setInterval(() => {
     }
 
 },1000);
+function loseGame(){
+
+    document.body.innerHTML = `
+
+    <div class="lose-screen">
+
+        <h1>🐧</h1>
+
+        <h2>
+        The penguins escaped!
+        </h2>
+
+        <button onclick="location.reload()">
+        Try Again
+        </button>
+
+    </div>
+
+    `;
+
+}
+function randomMessage(){
+
+    const messages = [
+        "Not me!",
+        "Too slow!",
+        "Run!",
+        "Wrong bird!",
+        "Catch me first!",
+        "Pam is coming!"
+    ];
+
+    return messages[
+        Math.floor(
+            Math.random() *
+            messages.length
+        )
+    ];
+
+}
+function showBubble(
+    penguin,
+    text
+){
+
+    const bubble =
+    document.createElement("div");
+
+    bubble.className =
+    "bubble";
+
+    bubble.innerText =
+    text;
+
+    penguin.appendChild(
+        bubble
+    );
+
+    setTimeout(()=>{
+
+        bubble.remove();
+
+    },1000);
+
+}
