@@ -70,3 +70,10 @@ function moveStar(){
     }
 
 }
+function winGame(){
+
+    document
+    .getElementById("continueBtn")
+    .style.display = "block";
+
+}
