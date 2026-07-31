@@ -167,3 +167,43 @@ button:active{
         0 0 15px violet
     );
 }
+.penguin{
+    position:absolute;
+    font-size:70px;
+    cursor:pointer;
+    transition:.3s;
+
+    animation: float 3s ease-in-out infinite;
+}
+
+#penguin2{
+    animation-delay:.5s;
+}
+
+#penguin3{
+    animation-delay:1s;
+}
+
+#penguin4{
+    animation-delay:1.5s;
+}
+
+#penguin5{
+    animation-delay:2s;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
