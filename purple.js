@@ -42,3 +42,31 @@ penguins.forEach((penguin,index)=>{
     });
 
 });
+function moveStar(){
+
+    penguins[holder]
+    .classList.remove("holder");
+
+    let next;
+
+    do{
+
+        next =
+        Math.floor(
+            Math.random()*5
+        );
+
+    }while(next === holder);
+
+    holder = next;
+
+    penguins[holder]
+    .classList.add("holder");
+
+    if(score >= 5){
+
+        winGame();
+
+    }
+
+}
