@@ -5,9 +5,18 @@
 }
 
 body{
+    margin:0;
+    overflow:hidden;
+    font-family:'Poppins',sans-serif;
+}
+body:not(.purple-stage){
+
     height:100vh;
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     background:linear-gradient(
@@ -17,10 +26,7 @@ body{
         #7b2cbf
     );
 
-    overflow:hidden;
-    font-family:'Poppins',sans-serif;
 }
-
 .container{
     text-align:center;
     color:white;
@@ -76,20 +82,7 @@ button:active{
     transform:scale(.9);
 }
 
-@keyframes float{
 
-    0%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-15px);
-    }
-
-    100%{
-        transform:translateY(0);
-    }
-}
 .purple-stage{
     background: linear-gradient(
         135deg,
@@ -252,15 +245,7 @@ button:active{
     white-space:nowrap;
 
 }
-@keyframes shake{
 
-    0%{
-        transform:translateX(0);
-    }
-
-    ...
-
-}
 #flyingStar{
 
     position:absolute;
